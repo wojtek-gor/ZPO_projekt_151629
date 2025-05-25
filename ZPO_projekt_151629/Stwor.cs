@@ -8,12 +8,20 @@ namespace ZPO_projekt_151629
 {
     public abstract class Stwor
     {
-        private int min_atak;
-        private int max_atak;
-        private int zycie;
+        protected int min_atak;
+        protected int max_atak;
+        protected int zycie;
+        protected int obrona;
+
+        public Stwor(int min_atak, int max_atak, int zycie, int obrona)
+        {
+            this.min_atak = min_atak;
+            this.max_atak = max_atak;
+            this.zycie = zycie;
+            this.obrona = obrona;
+        }
 
         public abstract void Atak();
         public abstract void Obrona();
-        public abstract void Decyzja();
     }
 }

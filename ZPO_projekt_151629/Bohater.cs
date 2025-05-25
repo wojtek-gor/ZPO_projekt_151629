@@ -6,16 +6,11 @@ using System.Threading.Tasks;
 
 namespace ZPO_projekt_151629
 {
-    internal class Potwor:Stwor
+    internal class Bohater:Stwor
     {
-        private string nazwa;
-        public Potwor( string nazwa, int min_atak, int max_atak, int zycie, int obrona):base(min_atak, max_atak, zycie, obrona)
+        public Bohater(int min_atak, int max_atak, int zycie, int obrona) : base(min_atak, max_atak, zycie, obrona)
         {
-            this.nazwa = nazwa;
-        }
-        public string GetNazwa()
-        {
-            return nazwa;
+            
         }
         public int GetZycie()
         {
@@ -30,7 +25,7 @@ namespace ZPO_projekt_151629
             return min_atak;
         }
         public int GetMaxAtak()
-        {
+        { 
             return max_atak;
         }
         public override void Atak()
@@ -38,10 +33,6 @@ namespace ZPO_projekt_151629
             throw new NotImplementedException();
         }
         public override void Obrona()
-        {
-            throw new NotImplementedException();
-        }
-        public void Decyzja()
         {
             throw new NotImplementedException();
         }

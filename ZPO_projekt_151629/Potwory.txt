@@ -1,0 +1,2 @@
+Szczur;0;4;4;0
+Niedzwiedz;1;6;6;1

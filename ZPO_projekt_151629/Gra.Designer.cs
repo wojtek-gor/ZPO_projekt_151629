@@ -39,8 +39,6 @@
             this.lbl_obrona_przeciwnika = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_obrona = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_atak
@@ -149,20 +147,11 @@
             this.lbl_obrona.TabIndex = 10;
             this.lbl_obrona.Text = "label6";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(332, 94);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(142, 170);
-            this.pictureBox1.TabIndex = 11;
-            this.pictureBox1.TabStop = false;
-            // 
             // Gra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lbl_obrona);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbl_obrona_przeciwnika);
@@ -177,7 +166,6 @@
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Gra";
             this.Text = "Gra";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -196,6 +184,5 @@
         private System.Windows.Forms.Label lbl_obrona_przeciwnika;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_obrona;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
