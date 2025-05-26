@@ -8,9 +8,10 @@ namespace ZPO_projekt_151629
 {
     internal class Bohater:Stwor
     {
+        Random random = new Random();
         public Bohater(int min_atak, int max_atak, int zycie, int obrona) : base(min_atak, max_atak, zycie, obrona)
         {
-            
+
         }
         public int GetZycie()
         {
@@ -28,13 +29,19 @@ namespace ZPO_projekt_151629
         { 
             return max_atak;
         }
-        public override void Atak()
+        public void SetZycie(int zycie)
         {
-            throw new NotImplementedException();
+            this.zycie = zycie;
+        }
+        public override void Atak(Stwor potwor)
+        {
+            int obrazenia = random.Next(min_atak, max_atak);
+            Potwor wrog = potwor as Potwor;
+            wrog.SetZycie(wrog.GetZycie()-(obrazenia-wrog.GetObrona()));
         }
         public override void Obrona()
         {
-            throw new NotImplementedException();
+            this.obrona = random.Next(1, 6);
         }
     }
 }

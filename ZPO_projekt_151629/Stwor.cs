@@ -21,7 +21,7 @@ namespace ZPO_projekt_151629
             this.obrona = obrona;
         }
 
-        public abstract void Atak();
+        public abstract void Atak(Stwor stwor);
         public abstract void Obrona();
     }
 }
