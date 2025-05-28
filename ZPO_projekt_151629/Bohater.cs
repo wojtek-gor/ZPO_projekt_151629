@@ -33,11 +33,24 @@ namespace ZPO_projekt_151629
         {
             this.zycie = zycie;
         }
-        public override void Atak(Stwor potwor)
+        public void SetObrona()
+        {
+            obrona = 0;
+        }
+        public override int Atak(Stwor potwor)
         {
             int obrazenia = random.Next(min_atak, max_atak);
             Potwor wrog = potwor as Potwor;
-            wrog.SetZycie(wrog.GetZycie()-(obrazenia-wrog.GetObrona()));
+            if(wrog.GetObrona()<obrazenia)
+            {
+                wrog.SetZycie(wrog.GetZycie() - (obrazenia - wrog.GetObrona()));
+            }
+            wrog.SetObrona();
+            if(wrog.GetObrona() < obrazenia)
+            {
+                return obrazenia - wrog.GetObrona();
+            }
+            return 0;
         }
         public override void Obrona()
         {

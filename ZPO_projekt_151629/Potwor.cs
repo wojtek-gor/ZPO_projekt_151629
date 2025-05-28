@@ -44,26 +44,43 @@ namespace ZPO_projekt_151629
         {
             this.zycie = zycie;
         }
-        public override void Atak(Stwor bohater)
+        public void SetObrona()
+        {
+            obrona = obrona_bazowa;
+        }
+        public override int Atak(Stwor bohater)
         {
             int obrazenia = random.Next(min_atak, max_atak);
             Bohater wrog = bohater as Bohater;
-            wrog.SetZycie(wrog.GetZycie()-(obrazenia-wrog.GetObrona()));
+            if(wrog.GetObrona()<obrazenia)
+            {
+                wrog.SetZycie(wrog.GetZycie() - (obrazenia - wrog.GetObrona()));
+            }
+            if (wrog.GetObrona() < obrazenia)
+            {
+                return obrazenia - wrog.GetObrona();
+            }
+            return 0;
         }
         public override void Obrona()
         {
             obrona = random.Next(1, 6) + obrona_bazowa;
         }
-        public void Decyzja(Bohater bohater)
+        public int Decyzja(Bohater bohater)
         {
             if(max_atak - bohater.GetObrona()>=2 || zycie<2)
             {
-                Atak(bohater);
+                return Atak(bohater);
             }
             else
             {
                 Obrona();
+                return -1;
             }
+        }
+        public Potwor Kopia()
+        {
+            return new Potwor(nazwa,min_atak,max_atak,zycie,obrona);
         }
     }
 }

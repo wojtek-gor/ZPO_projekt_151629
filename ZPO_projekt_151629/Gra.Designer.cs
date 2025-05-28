@@ -39,6 +39,8 @@
             this.lbl_obrona_przeciwnika = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lbl_obrona = new System.Windows.Forms.Label();
+            this.lbl_komunikat = new System.Windows.Forms.Label();
+            this.lbl_kom = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn_atak
@@ -65,9 +67,8 @@
             // 
             // lbl_przeciwnik
             // 
-            this.lbl_przeciwnik.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lbl_przeciwnik.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lbl_przeciwnik.Location = new System.Drawing.Point(267, 51);
+            this.lbl_przeciwnik.Location = new System.Drawing.Point(267, 36);
             this.lbl_przeciwnik.Name = "lbl_przeciwnik";
             this.lbl_przeciwnik.Size = new System.Drawing.Size(280, 29);
             this.lbl_przeciwnik.TabIndex = 2;
@@ -77,7 +78,7 @@
             // lbl_zycie_przeciwnika
             // 
             this.lbl_zycie_przeciwnika.AutoSize = true;
-            this.lbl_zycie_przeciwnika.Location = new System.Drawing.Point(299, 296);
+            this.lbl_zycie_przeciwnika.Location = new System.Drawing.Point(310, 105);
             this.lbl_zycie_przeciwnika.Name = "lbl_zycie_przeciwnika";
             this.lbl_zycie_przeciwnika.Size = new System.Drawing.Size(35, 13);
             this.lbl_zycie_przeciwnika.TabIndex = 3;
@@ -86,7 +87,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(198, 296);
+            this.label1.Location = new System.Drawing.Point(209, 105);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 13);
             this.label1.TabIndex = 4;
@@ -113,7 +114,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(471, 296);
+            this.label3.Location = new System.Drawing.Point(458, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(104, 13);
             this.label3.TabIndex = 7;
@@ -123,7 +124,7 @@
             // lbl_obrona_przeciwnika
             // 
             this.lbl_obrona_przeciwnika.AutoSize = true;
-            this.lbl_obrona_przeciwnika.Location = new System.Drawing.Point(581, 296);
+            this.lbl_obrona_przeciwnika.Location = new System.Drawing.Point(568, 105);
             this.lbl_obrona_przeciwnika.Name = "lbl_obrona_przeciwnika";
             this.lbl_obrona_przeciwnika.Size = new System.Drawing.Size(35, 13);
             this.lbl_obrona_przeciwnika.TabIndex = 8;
@@ -147,11 +148,32 @@
             this.lbl_obrona.TabIndex = 10;
             this.lbl_obrona.Text = "label6";
             // 
+            // lbl_komunikat
+            // 
+            this.lbl_komunikat.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lbl_komunikat.AutoSize = true;
+            this.lbl_komunikat.Location = new System.Drawing.Point(383, 214);
+            this.lbl_komunikat.Name = "lbl_komunikat";
+            this.lbl_komunikat.Size = new System.Drawing.Size(0, 13);
+            this.lbl_komunikat.TabIndex = 11;
+            // 
+            // lbl_kom
+            // 
+            this.lbl_kom.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.lbl_kom.Location = new System.Drawing.Point(139, 204);
+            this.lbl_kom.Name = "lbl_kom";
+            this.lbl_kom.Size = new System.Drawing.Size(511, 23);
+            this.lbl_kom.TabIndex = 12;
+            this.lbl_kom.Text = "label4";
+            this.lbl_kom.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Gra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_kom);
+            this.Controls.Add(this.lbl_komunikat);
             this.Controls.Add(this.lbl_obrona);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lbl_obrona_przeciwnika);
@@ -184,5 +206,7 @@
         private System.Windows.Forms.Label lbl_obrona_przeciwnika;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lbl_obrona;
+        private System.Windows.Forms.Label lbl_komunikat;
+        private System.Windows.Forms.Label lbl_kom;
     }
 }
