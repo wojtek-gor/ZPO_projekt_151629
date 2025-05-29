@@ -24,5 +24,18 @@ namespace ZPO_projekt_151629
             gra.Show();
             gra.FormClosed += (s, args) => this.Show();
         }
+
+        private void btn_dodaj_przeciwnika_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Nowy_przeciwnik nowy = new Nowy_przeciwnik();
+            nowy.Show();
+            nowy.FormClosed += (s, args) => this.Show();
+        }
+
+        private void btn_zamknij_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

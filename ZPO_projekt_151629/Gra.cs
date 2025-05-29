@@ -19,6 +19,7 @@ namespace ZPO_projekt_151629
         Bohater bohater = new Bohater(1, 6, 6, 0);
         Potwor wrog;
         int runda = 0;
+        int tura = 0;
         public Gra()
         {
             InitializeComponent();
@@ -137,8 +138,10 @@ namespace ZPO_projekt_151629
         private void Nastepna_tura()
         {
             runda++;
+            tura++;
             int wybor = random.Next(ilePotworow);
             wrog = potwory[wybor].Kopia();
+            lbl_licznik_tury.Text = tura.ToString();
             lbl_przeciwnik.Text = wrog.GetNazwa();
             lbl_zycie_przeciwnika.Text = wrog.GetZycie().ToString();
             lbl_obrona_przeciwnika.Text = wrog.GetObrona().ToString();
