@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -26,7 +27,6 @@ namespace ZPO_projekt_151629
 
         private async void btn_dodaj_Click(object sender, EventArgs e)
         {
-            string przeciwnik = "";
             if(txtBox_nazwa_przeciwnika.Text == "")
             {
                 lbl_komunikat.Text = "Nadaj nazwę przeciwnikowi";
@@ -45,8 +45,13 @@ namespace ZPO_projekt_151629
             }
             else
             {
-                przeciwnik = "\n"+txtBox_nazwa_przeciwnika.Text + ";" + numBox_min_atak.Value.ToString() + ";" + numBox_max_atak.Value.ToString() + ";" + numBox_zycie.Value.ToString() + ";" + numBox_obrona.Value.ToString();
-                File.AppendAllText("Potwory.txt", przeciwnik);
+                Potwor nowy = new Potwor(txtBox_nazwa_przeciwnika.Text, ((int)numBox_min_atak.Value), ((int)numBox_max_atak.Value), ((int)numBox_zycie.Value), ((int)numBox_obrona.Value), ((int)numBox_obrona.Value));
+                string pot = File.ReadAllText("potwory.json");
+                List<Potwor> lista = new List<Potwor>();
+                lista = JsonConvert.DeserializeObject<List<Potwor>>(pot);
+                lista.Add(nowy);
+                pot = JsonConvert.SerializeObject(lista, Formatting.Indented);
+                File.WriteAllText("potwory.json", pot);
                 lbl_komunikat.Text = "Przeciwnik dodany";
                 await Task.Delay(1000);
                 this.Close();

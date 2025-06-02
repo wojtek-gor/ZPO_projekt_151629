@@ -1,0 +1,27 @@
+[
+  {
+    "nazwa": "Szczur",
+    "min_atak": 0,
+    "max_atak": 4,
+    "zycie": 4,
+    "obrona": 0,
+    "bazowa_obrona": 0
+  },
+  {
+    "nazwa": "Niedźwiedź",
+    "min_atak": 1,
+    "max_atak": 6,
+    "zycie": 6,
+    "obrona": 1,
+    "bazowa_obrona": 1
+  },
+  {
+    "nazwa": "Kusznik",
+    "min_atak": 2,
+    "max_atak": 4,
+    "zycie": 6,
+    "obrona": 0,
+    "bazowa_obrona": 0
+  }
+
+]

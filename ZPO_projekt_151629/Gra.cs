@@ -6,6 +6,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -27,12 +28,8 @@ namespace ZPO_projekt_151629
             lbl_kom.Text = "";
             lbl_zycie.Text = bohater.GetZycie().ToString();
             lbl_obrona.Text = bohater.GetObrona().ToString();
-            string[] potwor = File.ReadAllLines("Potwory.txt");
-            for(int i = 0; i < potwor.Length; i++)
-            {
-                string[] parametry = potwor[i].Split(';');
-                potwory.Add(new Potwor(parametry[0], int.Parse(parametry[1]), int.Parse(parametry[2]), int.Parse(parametry[3]), int.Parse(parametry[4])));
-            }
+            string potwor = File.ReadAllText("potwory.json");
+            potwory = JsonConvert.DeserializeObject<List<Potwor>>(potwor);
             ilePotworow = potwory.Count;
             Nastepna_runda();
         }

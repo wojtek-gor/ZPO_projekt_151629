@@ -8,13 +8,18 @@ namespace ZPO_projekt_151629
 {
     internal class Potwor:Stwor
     {
-        private string nazwa;
-        private int obrona_bazowa;
+        public string nazwa;
+        public int obrona_bazowa;
         Random random = new Random();
-        public Potwor( string nazwa, int min_atak, int max_atak, int zycie, int obrona):base(min_atak, max_atak, zycie, obrona)
+        /*public Potwor( string nazwa, int min_atak, int max_atak, int zycie, int obrona):base(min_atak, max_atak, zycie, obrona)
         {
             this.nazwa = nazwa;
             obrona_bazowa = obrona;
+        }*/
+        public Potwor(string nazwa, int min_atak, int max_atak, int zycie, int obrona, int obrona_bazowa) : base(min_atak, max_atak, zycie, obrona)
+        {
+            this.nazwa = nazwa;
+            this.obrona_bazowa = obrona_bazowa;
         }
         public string GetNazwa()
         {
@@ -80,7 +85,7 @@ namespace ZPO_projekt_151629
         }
         public Potwor Kopia()
         {
-            return new Potwor(nazwa,min_atak,max_atak,zycie,obrona);
+            return new Potwor(nazwa,min_atak,max_atak,zycie,obrona,obrona_bazowa);
         }
     }
 }
