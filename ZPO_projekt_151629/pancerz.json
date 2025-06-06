@@ -1,0 +1,17 @@
+﻿[
+  {
+    "nazwa": "Skórzany kaftan",
+    "typ": "pancerz",
+    "bonus": 2
+  },
+  {
+    "nazwa": "Lniana tunika",
+    "typ": "pancerz",
+    "bonus": 1
+  },
+  {
+    "nazwa": "Zbroja płytowa",
+    "typ": "pancerz",
+    "bonus": 4
+  }
+]

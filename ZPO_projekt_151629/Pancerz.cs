@@ -8,6 +8,10 @@ namespace ZPO_projekt_151629
 {
     internal class Pancerz:Przedmiot
     {
-        int bonus;
+        public int bonus;
+        public Pancerz(string nazwa, string typ,  int bonus): base(nazwa, typ)
+        {
+            this.bonus = bonus;
+        }
     }
 }

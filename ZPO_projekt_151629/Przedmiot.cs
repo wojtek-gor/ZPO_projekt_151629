@@ -10,6 +10,10 @@ namespace ZPO_projekt_151629
     {
         public string nazwa;
         public string typ;
-        public string[] cechy;
+        public Przedmiot(string nazwa, string typ)
+        {
+            this.nazwa = nazwa;
+            this.typ = typ;
+        }
     }
 }

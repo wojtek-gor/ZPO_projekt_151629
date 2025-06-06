@@ -38,7 +38,7 @@ namespace ZPO_projekt_151629
         }
         public void SetObrona()
         {
-            obrona = 0;
+            obrona = pancerz;
         }
         public override int Atak(Stwor potwor)
         {
@@ -59,25 +59,62 @@ namespace ZPO_projekt_151629
         {
             this.obrona = random.Next(1, 6) + pancerz;
         }
-        public static void DodajPrzedmiot<T>(T przedmiot) where T:Przedmiot
+        public static void DodajPrzedmiot<T>(T przedmiot, Bohater bohater) where T:Przedmiot
         {
-            if(plecak == null || plecak.Count == 0)
+            if(plecak == null)
             {
                 plecak = new List<Przedmiot>();
+                plecak.Add(przedmiot);
+                AktywujPrzedmiot(przedmiot, bohater);
             }
-            switch(przedmiot.typ)
+            else
+            {
+                plecak.Add(przedmiot);
+                AktywujPrzedmiot(przedmiot, bohater);
+            }
+            
+        }
+        public static void AktywujPrzedmiot<T>(T przedmiot, Bohater bohater) where T:Przedmiot
+        {
+            switch (przedmiot.typ)
             {
                 case "bron":
-                    plecak.Add(przedmiot);
+                    Bron bron = przedmiot as Bron;
+                    bohater.max_atak += bron.max_bonus;
+                    bohater.min_atak += bron.min_bonus;
                     break;
                 case "pancerz":
-                    plecak.Add(przedmiot);
+                    Pancerz pancerz = przedmiot as Pancerz;
+                    bohater.obrona += pancerz.bonus;
+                    bohater.pancerz = bohater.obrona;
                     break;
                 case "mikstura":
-                    plecak.Add(przedmiot);
+                    Mikstura mikstura = przedmiot as Mikstura;
+                    for(int i = 0;i<mikstura.cechy.Length;i++)
+                    {
+                        switch (mikstura.cechy[i])
+                        {
+                            case "max_atak":
+                                bohater.max_atak += mikstura.bonus[i];
+                                break;
+                            case "min_atak":
+                                bohater.min_atak += mikstura.bonus[i];
+                                break;
+                            case "obrona":
+                                bohater.obrona += mikstura.bonus[i];
+                                bohater.pancerz = bohater.obrona;
+                                break;
+                            case "zycie":
+                                bohater.zycie += mikstura.bonus[i];
+                                break;
+                            default:
+                                throw new Exception("Brak cechy");
+                        }
+                    }
                     break;
                 default:
-                    throw new Exception("Nie mogę dodać przedmiotu");
+                    throw new NotImplementedException("Nie mogę aktywować przedmiotu");
+                    
             }
         }
     }

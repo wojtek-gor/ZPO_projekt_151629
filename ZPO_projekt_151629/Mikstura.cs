@@ -9,5 +9,11 @@ namespace ZPO_projekt_151629
     internal class Mikstura:Przedmiot
     {
         public int[] bonus;
+        public string[] cechy;
+        public Mikstura(string nazwa, string typ, string[] cechy, int[] bonus): base(nazwa, typ)
+        {
+            this.bonus = bonus;
+            this.cechy = cechy;
+        }
     }
 }
