@@ -1,0 +1,20 @@
+﻿[
+  {
+    "nazwa": "Krutki miecz",
+    "typ": "bron",
+    "max_bonus": 2,
+    "min_bonus": 1
+  },
+  {
+    "nazwa": "Proca",
+    "typ": "bron",
+    "max_bonus": 1,
+    "min_bonus": 0
+  },
+  {
+    "nazwa": "Maczuga",
+    "typ": "bron",
+    "max_bonus": 3,
+    "min_bonus": -1
+  }
+]

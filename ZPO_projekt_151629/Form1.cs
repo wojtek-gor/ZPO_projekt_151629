@@ -37,5 +37,13 @@ namespace ZPO_projekt_151629
         {
             this.Close();
         }
+
+        private void btn_nowy_przedmiot_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            DodajPrzedmiot przedmiot = new DodajPrzedmiot();
+            przedmiot.Show();
+            przedmiot.FormClosed += (s, args) => this.Show();
+        }
     }
 }

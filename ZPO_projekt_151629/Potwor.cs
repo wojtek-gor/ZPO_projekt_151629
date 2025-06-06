@@ -11,11 +11,6 @@ namespace ZPO_projekt_151629
         public string nazwa;
         public int obrona_bazowa;
         Random random = new Random();
-        /*public Potwor( string nazwa, int min_atak, int max_atak, int zycie, int obrona):base(min_atak, max_atak, zycie, obrona)
-        {
-            this.nazwa = nazwa;
-            obrona_bazowa = obrona;
-        }*/
         public Potwor(string nazwa, int min_atak, int max_atak, int zycie, int obrona, int obrona_bazowa) : base(min_atak, max_atak, zycie, obrona)
         {
             this.nazwa = nazwa;

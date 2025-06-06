@@ -1,0 +1,26 @@
+﻿[
+  {
+    "nazwa": "Woda życia",
+    "typ": "mikstura",
+    "cechy": [ "zycie" ],
+    "bonus": [ 5 ]
+  },
+  {
+    "nazwa": "Krzepkie zioło",
+    "typ": "mikstura",
+    "cechy": [ "zycie", "max_atak" ],
+    "bonus": [ -1, 3 ]
+  },
+  {
+    "nazwa": "Zupa łowcy",
+    "typ": "mikstura",
+    "cechy": [ "max_atak", "min_atak" ],
+    "bonus": [ 2, 2 ]
+  },
+  {
+    "nazwa": "Kamienna skóra",
+    "typ": "mikstura",
+    "cechy": [ "zycie", "obrona" ],
+    "bonus": [ 1, 3 ]
+  }
+]

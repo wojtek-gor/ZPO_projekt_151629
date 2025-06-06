@@ -17,6 +17,9 @@ namespace ZPO_projekt_151629
         Random random = new Random();
         int ilePotworow = 0;
         List<Potwor> potwory = new List<Potwor>();
+        List<Bron> bron = new List<Bron>();
+        List<Pancerz> pancerz = new List<Pancerz>();
+        List<Mikstura> mikstura = new List<Mikstura>();
         Bohater bohater = new Bohater(1, 6, 6, 0);
         Potwor wrog;
         int runda = 0;
@@ -31,6 +34,12 @@ namespace ZPO_projekt_151629
             string potwor = File.ReadAllText("potwory.json");
             potwory = JsonConvert.DeserializeObject<List<Potwor>>(potwor);
             ilePotworow = potwory.Count;
+            string bronie = File.ReadAllText("bron.json");
+            bron = JsonConvert.DeserializeObject<List<Bron>>(bronie);
+            string panc = File.ReadAllText("pancerz.json");
+            pancerz = JsonConvert.DeserializeObject<List<Pancerz>>(panc);
+            string miks = File.ReadAllText("mikstury.json");
+            mikstura = JsonConvert.DeserializeObject<List<Mikstura>>(miks);
             Nastepna_runda();
         }
 
@@ -48,6 +57,9 @@ namespace ZPO_projekt_151629
             await Task.Delay(1000);
             if(wrog.GetZycie()<1)
             {
+                lbl_kom.Text = "";
+                LosujPrzedmiot();
+                Aktualizuj_napisy();
                 runda = 0;
                 Nastepna_runda();
             }
@@ -112,7 +124,7 @@ namespace ZPO_projekt_151629
             btn_obrona.Enabled = true;
         }
         private void Aktualizuj_napisy()
-        {
+        { 
             lbl_zycie.Text = bohater.GetZycie().ToString();
             lbl_obrona.Text = bohater.GetObrona().ToString();
             lbl_zycie_przeciwnika.Text = wrog.GetZycie().ToString();
@@ -143,6 +155,69 @@ namespace ZPO_projekt_151629
             lbl_zycie_przeciwnika.Text = wrog.GetZycie().ToString();
             lbl_obrona_przeciwnika.Text = wrog.GetObrona().ToString();
 
+        }
+        private async void LosujPrzedmiot()
+        {
+            if(random.Next(0,10001)%2 == 0)
+            {
+                int wybor = random.Next(0, 1001)%3;
+                switch (wybor)
+                {
+                    case 0:
+                        var wybrana_bron = bron[random.Next(bron.Count)];
+                        var odp_b = MessageBox.Show("Znalazłeś przedmiot " + wybrana_bron.nazwa + " !!!\nCzy chcesz go zatrzymać?", "Przyjęcie przedmiotu", MessageBoxButtons.YesNo);
+                        if(odp_b == DialogResult.Yes)
+                        {
+                            Bohater.DodajPrzedmiot<Bron>(wybrana_bron, bohater);
+                            lbl_kom.Text = "Przedmiot dodany";
+                            await Task.Delay(700);
+                            lbl_kom.Text = "";
+                        }
+                        else
+                        {
+                            lbl_kom.Text = "Przedmiot odrzucony";
+                            await Task.Delay(700);
+                            lbl_kom.Text = "";
+                        }
+                        break;
+                    case 1:
+                        var wybrana_pancerz = pancerz[random.Next(pancerz.Count)];
+                        var odp_p = MessageBox.Show("Znalazłeś przedmiot " + wybrana_pancerz.nazwa + " !!!\nCzy chcesz go zatrzymać?", "Przyjęcie przedmiotu", MessageBoxButtons.YesNo);
+                        if (odp_p == DialogResult.Yes)
+                        {
+                            Bohater.DodajPrzedmiot<Pancerz>(wybrana_pancerz, bohater);
+                            lbl_kom.Text = "Przedmiot dodany";
+                            await Task.Delay(700);
+                            lbl_kom.Text = "";
+                        }
+                        else
+                        {
+                            lbl_kom.Text = "Przedmiot odrzucony";
+                            await Task.Delay(700);
+                            lbl_kom.Text = "";
+                        }
+                        break;
+                    case 2:
+                        var wybrana_mikstura = mikstura[random.Next(mikstura.Count)];
+                        var odp = MessageBox.Show("Znalazłeś przedmiot " + wybrana_mikstura.nazwa + " !!!\nCzy chcesz go zatrzymać?", "Przyjęcie przedmiotu", MessageBoxButtons.YesNo);
+                        if (odp == DialogResult.Yes)
+                        {
+                            Bohater.DodajPrzedmiot<Mikstura>(wybrana_mikstura, bohater);
+                            lbl_kom.Text = "Przedmiot dodany";
+                            await Task.Delay(700);
+                            lbl_kom.Text = "";
+                        }
+                        else
+                        {
+                            lbl_kom.Text = "Przedmiot odrzucony";
+                            await Task.Delay(700);
+                            lbl_kom.Text = "";
+                        }
+                        break;
+                    default:
+                        throw new Exception("Niwłaściwy przedmiot");
+                }
+            } 
         }
     }
 }
